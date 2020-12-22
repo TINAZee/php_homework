@@ -1,18 +1,23 @@
 
 <a href ="?">linkas i save</a>
 <br>
-<form>
-<button type="submit" name="GET" >GET</button>
+
+<br>
+<form action=""method="get"></form>
+<button type="submit" >GET</button>
 </form>
-<form>
-<button type="submit"name="POST">POST</button>
+
+<form action=""method="post">
+<button type="submit">POST</button>
 </form>
 
 <?php
-if(empty($_GET['GET'])){
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    echo '<style>html{background:green;}</style>';
+   echo 'POST METODAS';
 }
-if(isset($_GET['POST'])){
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     echo '<style>html{background:yellow;}</style>';
+    echo 'GET METODAS';
  }
 ?>

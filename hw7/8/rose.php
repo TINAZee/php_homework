@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HW2</title>
+    <title>HW8</title>
 </head>
 <body>
     
 </body>
 </html>
+
 <style>
 html  {
- background-color: black;
+ background-color: #FF007F;
 }
 a {
  color: white;
@@ -19,9 +20,9 @@ a {
 </style>
 
 <?php
-
-if (isset($_GET['color'])) {
-    echo '<style>html{background:#'.$_GET['color'].';}</style>';
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    header('Location: http://localhost/BIT_KURSAI_PHP/Pirmas/hw7/8/pink.php');
+    die;
 }
+
 ?>
-<a href='?'>Nuoroda i save</a><br>
