@@ -25,10 +25,10 @@ $r=rand(3,10);
 $ch = 'A';
 for ($i=0; $i < $r; $i++) { 
     if($i == 0){
-    echo "<br><label><input type='checkbox' />$ch</label><br>";
+    echo "<br><label><input type='checkbox' /name = 'checkbox[]'>$ch</label><br>";
     }
     $next_ch = ++$ch;
-    echo "<br><label><input type='checkbox' />$next_ch</label><br>"; 
+    echo "<br><label><input type='checkbox' /name = 'checkbox[]'>$next_ch</label><br>"; 
 }
 
 ?>
@@ -36,3 +36,13 @@ for ($i=0; $i < $r; $i++) {
 <button type="submit">Change background and form</button>
 
 </form>
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+$checked_arr = $_POST['checkbox'] ?? [];
+$count = count($checked_arr);
+echo "There are ".$count." checkboxe(s) are checked, all: $r";
+echo '<style>html{background:yellow;}</style>';
+}
+?>

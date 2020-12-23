@@ -21,10 +21,3 @@ a {
 <form action="rose.php"method="post">
 <button type="submit">Go to rose</button>
 </form>
-
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Location: http://localhost/BIT_KURSAI_PHP/Pirmas/hw7/8/rose.php');
-    die;
-}
-?>
