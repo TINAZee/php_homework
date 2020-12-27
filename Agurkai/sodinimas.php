@@ -1,4 +1,6 @@
 <?php
+
+
 session_start();
 
 if (!isset($_SESSION['a'])) {
@@ -8,9 +10,10 @@ if (!isset($_SESSION['a'])) {
 
 // SODINIMO SCENARIJUS
 if (isset($_POST['sodinti'])) {
-
     $_SESSION['a'][] = [
         'id' => ++$_SESSION['agurku ID'],
+        $img = ['img_1.jpg', 'img_2.jpg', 'img_3.jpg','img_4.jpg','img_5.jpg'],
+        'img' => $img[array_rand($img)],
         'agurkai' => 0
     ];
     header('Location:http://localhost/BIT_KURSAI_PHP/Pirmas/Agurkai/sodinimas.php');
@@ -26,9 +29,8 @@ if (isset($_POST['rauti'])) {
         }
     }
 }
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +38,7 @@ if (isset($_POST['rauti'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sodinimas</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <h1>Agurkų sodas</h1>
@@ -43,7 +46,8 @@ if (isset($_POST['rauti'])) {
     <form action="" method="post">
     <?php foreach($_SESSION['a'] as $agurkas): ?>
 
-    <div>
+    <div id = main>
+    <td><img class="img" src="<?= $agurkas['img'] ?>" alt="agurkas">
     Agurkas nr. <?= $agurkas['id'] ?>
     Agurkų: <?= $agurkas['agurkai'] ?>
     <button type="submit" name="rauti" value="<?= $agurkas['id'] ?>">Išrauti</button>
