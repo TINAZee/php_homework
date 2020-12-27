@@ -3,9 +3,14 @@ body  {
    }
    h1 {
     color: green;
+    text-align: center
+   }
+   h3{
+    color: green;
+    text-align: center 
    }
    #main {
-       background: lightgreen;
+       background: rgb(174, 226, 174);
        margin: 30px;
        text-align: center
    }

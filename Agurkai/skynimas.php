@@ -52,7 +52,7 @@ if (isset($_POST['nuimtiDerliu'])) {
     <div id = main>
     <td><img class="img" src="<?= $agurkas['img'] ?>" alt="agurkas">
     Agurkas Nr. <?= $agurkas['id'] ?>
-    <p style="display:inline;">Galima skinti</p>
+    <p style="display:inline;color:red"> Galima skinti </p>
     <h1 style="display:inline;"><?= $agurkas['agurkai'] ?></h1>
     <input type="text" name="kiek_skinti[<?= $agurkas['id'] ?>]"value=<?= $skynimas ?? 0 ?>>
     <button type="submit" name="skinti">Skinti</button>

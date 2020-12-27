@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 
 if (!isset($_SESSION['a'])) {
@@ -47,7 +45,7 @@ if (isset($_POST['rauti'])) {
     <?php foreach($_SESSION['a'] as $agurkas): ?>
 
     <div id = main>
-    <td><img class="img" src="<?= $agurkas['img'] ?>" alt="agurkas">
+    <img class="img" src="<?= $agurkas['img'] ?>" alt="agurkas">
     Agurkas nr. <?= $agurkas['id'] ?>
     Agurkų: <?= $agurkas['agurkai'] ?>
     <button type="submit" name="rauti" value="<?= $agurkas['id'] ?>">Išrauti</button>
