@@ -39,14 +39,18 @@ if (isset($_POST['rauti'])) {
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<header>
+<a href="sodinimas.php">Sodinimas</a>
+<a href="auginimas.php">Auginimas</a>
+<a href="skynimas.php">Skynimas</a>
+</header>
 <h1>Agurkų sodas</h1>
 <h3>Sodinimas</h3>
     <form action="" method="post">
     <?php foreach($_SESSION['a'] as $agurkas): ?>
-
     <div id = main>
     <img class="img" src="<?= $agurkas['img'] ?>" alt="agurkas">
-    Agurkas nr. <?= $agurkas['id'] ?>
+    <p>Agurkas nr. <?= $agurkas['id'] ?></p>
     Agurkų: <?= $agurkas['agurkai'] ?>
     <button type="submit" name="rauti" value="<?= $agurkas['id'] ?>">Išrauti</button>
     </div>

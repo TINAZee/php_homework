@@ -24,18 +24,22 @@ if (isset($_POST['auginti'])) {
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<header>
+<a href="sodinimas.php">Sodinimas</a>
+<a href="auginimas.php">Auginimas</a>
+<a href="skynimas.php">Skynimas</a>
+</header>
 <h1>Agurkų sodas</h1>
 <h3>Auginimas</h3>
     <form action="" method="post">
     <?php foreach($_SESSION['a'] as $agurkas): ?>
-    <divid id = main>
+    <div id = main>
     <?php $kiekis = rand(2, 9) ?>
     <td><img class="img" src="<?= $agurkas['img'] ?>" alt="agurkas">
     <h1 style="display:inline;"><?= $agurkas['agurkai'] ?></h1>
     <h3 style="display:inline;color:red;">+<?= $kiekis ?></h3>
     <input type="hidden" name="kiekis[<?= $agurkas['id'] ?>]" value="<?= $kiekis ?>">
     Agurkas Nr. <?= $agurkas['id'] ?>
-    <br>
     </div>
     <?php endforeach ?>
     <button type="submit" name="auginti">Auginti</button>

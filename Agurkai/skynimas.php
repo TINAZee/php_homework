@@ -18,13 +18,18 @@ if (isset($_POST['skinti'])) {
 
 
 //SKINTI VISUS SCENARIJUS
+
 if (isset($_POST['skinti_visus'])) {
-    foreach($_SESSION['a'] as $index => &$agurkas) {
-        $agurkas['agurkai'] -= $_POST['skinti_visus'][$agurkas['id']];
+    foreach ($_SESSION['a'] as $index => &$agurkas ) {
+        if ($_POST['skinti_visus'] == $agurkas['id']) {
+            $agurkas['agurkai'] -=  $agurkas['agurkai'];
+        }
+        header('Location: http://localhost/BIT_KURSAI_PHP/Pirmas/Agurkai/skynimas.php.');
+        die;
     }
-    header('Location: http://localhost/BIT_KURSAI_PHP/Pirmas/Agurkai/skynimas.php.');
-    exit;
+    
 }
+
 //NUIMTI VISA DERLIU SCENARIJUS
 
 if (isset($_POST['nuimtiDerliu'])) {
@@ -45,6 +50,11 @@ if (isset($_POST['nuimtiDerliu'])) {
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<header>
+<a href="sodinimas.php">Sodinimas</a>
+<a href="auginimas.php">Auginimas</a>
+<a href="skynimas.php">Skynimas</a>
+</header>
 <h1>Agurkų sodas</h1>
 <h3>Agurkų skynimas</h3>
     <form action="" method="post">
@@ -56,8 +66,7 @@ if (isset($_POST['nuimtiDerliu'])) {
     <h1 style="display:inline;"><?= $agurkas['agurkai'] ?></h1>
     <input type="text" name="kiek_skinti[<?= $agurkas['id'] ?>]"value=<?= $skynimas ?? 0 ?>>
     <button type="submit" name="skinti">Skinti</button>
-    <button type="submit" name="skinti_visus">Skinti visus</button>
-    <input type="hidden" name="skinti_visus[<?= $agurkas['id'] ?>]" value=<?= $agurkas['agurkai'] ?? 0 ?>>
+    <button type="submit" name="skinti_visus" value="<?= $agurkas['id'] ?>">Skinti visus</button>
     </div>
     <?php endforeach ?>
     <button type="submit" name="nuimtiDerliu">Nuimti visą derlių</button>
